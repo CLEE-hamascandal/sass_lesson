@@ -15,6 +15,19 @@
 $maxWidth: 1000px;
 $brandColor: #cd6799;
 
+@mixin btn($color) {
+  display: block;
+  padding: 20px 30px;
+  color: $color;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #20aee5;
+  text: {
+    decoration: none;
+    align: center;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -52,6 +65,32 @@ $brandColor: #cd6799;
 
       &:hover {
         color: $brandColor;
+      }
+    }
+  }
+}
+
+.footer {
+  padding: 70px 0;
+
+  &__sns {
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      & > li {
+        width: 32%;
+
+        &:nth-child(n+4) {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__btn {
+      &.is-facebook {
+        @include btn(#4668b3);
       }
     }
   }
