@@ -1,0 +1,88 @@
+@use 'utils';
+
+.header {
+  height: 100px;
+  width: 400px;
+  background-color: utils.$navy;
+  position: relative;
+
+  .triple-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: utils.$white;
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin: 0 auto;
+
+      @each $boxColor in utils.$classNames {
+        $index_key : index(utils.$classNames, $boxColor);
+
+        .box_#{$boxColor} {
+          height: 40px;
+          width: 40px;
+          margin-left: 10px;
+          background-color: nth(utils.$buttonColor, $index_key);
+        }
+      }
+
+      li:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: start;
+
+  .sidebar {
+    height: 250px;
+    width: 150px;
+    background-color: utils.$green;
+  }
+
+  .main {
+    height: 250px;
+    width: 250px;
+    background-color: utils.$red;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 40px;
+      padding-left: 40px;
+      margin: 0 auto;
+
+      @each $boxColor in utils.$classNames {
+        $index_key : index(utils.$classNames, $boxColor);
+
+        .box_#{$boxColor} {
+          height: 40px;
+          width: 140px;
+          margin-top: 10px;
+          border: solid 5px utils.$white;
+          background-color: nth(utils.$buttonColor, $index_key);
+        }
+      }
+      
+      li:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.footer {
+  height: 100px;
+  width: 400px;
+  background-color: utils.$brown;
+}

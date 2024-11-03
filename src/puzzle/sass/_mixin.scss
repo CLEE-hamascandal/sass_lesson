@@ -1,0 +1,5 @@
+@mixin box($name, $color) {
+  @each $box in $color {
+    background-color: $color;
+  }
+}
